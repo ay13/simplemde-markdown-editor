@@ -203,8 +203,10 @@ function toggleFullScreen(editor) {
 	var wrap = cm.getWrapperElement();
 
 	if(!/fullscreen/.test(wrap.previousSibling.className)) {
+		document.body.classList.toggle("fullscreen");
 		wrap.previousSibling.className += " fullscreen";
 	} else {
+		document.body.classList.toggle("fullscreen");
 		wrap.previousSibling.className = wrap.previousSibling.className.replace(/\s*fullscreen\b/, "");
 	}
 
@@ -1672,9 +1674,9 @@ SimpleMDE.prototype.createToolbar = function(items) {
 			var nonSeparatorIconsFollow = false;
 
 			for(var x = (i + 1); x < items.length; x++) {
-				console.log(x);
+				// console.log(x);
 				if(items[x] !== "|" && (!self.options.hideIcons || self.options.hideIcons.indexOf(items[x].name) == -1)) {
-					console.log(items[x]);
+					// console.log(items[x]);
 					nonSeparatorIconsFollow = true;
 				}
 			}
